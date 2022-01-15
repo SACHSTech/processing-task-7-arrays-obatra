@@ -8,7 +8,7 @@ public class Sketch extends PApplet {
    */
   public void settings() {
 	// put your size call here
-    size(400, 400);
+    size(500, 500);
   }
 
   /** 
@@ -16,7 +16,7 @@ public class Sketch extends PApplet {
    * values here i.e background, stroke, fill etc.
    */
   public void setup() {
-    background(210, 255, 173);
+    background(0, 0, 0);
   }
 
   /**
@@ -24,13 +24,23 @@ public class Sketch extends PApplet {
    */
   public void draw() {
 	  
-	// sample code, delete this stuff
-    stroke(128);
-    line(150, 25, 270, 350);  
+	float [] ellipseY = new float[60];
+  for (int i = 0; i < 60; i++){
+    ellipseY[i] = random(height);
+  }
+  for(int i = 0; i < ellipseY.length; i++) {
+    float ellipseX = width * i / ellipseY.length;
+    ellipse(ellipseX, ellipseY[i], 20,20);
 
-    stroke(255);
-    line(50, 125, 70, 50);  
+    ellipseY[i]++;
+
+    // conditional if statement
+    if(ellipseY[i] < height)
+    {
+      ellipseY[i] = 0;
+    }
+  }
   }
   
-  // define other methods down here.
+  
 }
